@@ -67,7 +67,7 @@ export default function BrowserOverlay({ children }) {
           </a>
           {/* <button
             onClick={() => setShowOverlay(false)}
-            className="px-8 py-3 border border-purple-400 text-purple-400 font-semibold rounded-full hover:bg-purple-400 hover:text-white transition transform hover:scale-105"
+            className="px-8 py-3 border border-purple-400  font-semibold   "
           >
             Open in Browser
           </button> */}

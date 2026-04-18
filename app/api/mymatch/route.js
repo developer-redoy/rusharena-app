@@ -30,11 +30,11 @@ export async function GET(request) {
     // Calculate totals
     const totalKills = userMatches.reduce(
       (acc, match) => acc + Number(match.myKills || 0),
-      0
+      0,
     );
     const totalWins = userMatches.reduce(
       (acc, match) => acc + Number(match.myWin || 0),
-      0
+      0,
     );
 
     // Build response data
@@ -47,7 +47,7 @@ export async function GET(request) {
 
     // Include full match list only if requested
     if (matchList) {
-      data.matches = userMatches;
+      data.matches = userMatches.map(({ userId, ...rest }) => rest);
     }
 
     return response(true, 200, "User match totals fetched successfully", data);
