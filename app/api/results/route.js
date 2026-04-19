@@ -16,9 +16,7 @@ export async function GET(request) {
     }
 
     // 🔥 MongoDB filtering (FAST & SCALABLE)
-    const matches = await ResultMatches.find({
-      "joinedPlayers.authId": userId,
-    }).lean();
+    const matches = await ResultMatches.find().lean();
 
     if (!matches.length) {
       return new Response(
