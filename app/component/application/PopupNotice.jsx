@@ -36,7 +36,7 @@ export default function PopupNotice() {
             </p>
 
             <p className="text-green-400 mt-3">
-              🔥উইথড্র request পাঠালে ৫-৩০ মিনিটের মধ্যে টাকা পেয়ে যাবেন।✅
+              ✅ উইথড্র request পাঠালে ৫-৩০ মিনিটের মধ্যে টাকা পেয়ে যাবেন।
             </p>
 
             <p className="text-green-400 mt-3">
@@ -49,8 +49,7 @@ export default function PopupNotice() {
             </p>
 
             <p className="text-yellow-400 mt-3">
-              🗨️ফ্রি ম্যাচ এর রুম আইডি পাসওয়ার্ড টেলিগ্রাম চ্যানেলে দেওয়া
-              হয়।✅
+              🗨️ফ্রি ম্যাচ এর রুম আইডি পাসওয়ার্ড টেলিগ্রাম চ্যানেলে দেওয়া হয়।
             </p>
 
             <p className="text-yellow-400 mt-3">

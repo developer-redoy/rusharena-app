@@ -26,7 +26,7 @@ export async function GET() {
       },
       {
         // limit top players
-        $limit: 10,
+        $limit: 20,
       },
       {
         // join users collection
@@ -57,7 +57,7 @@ export async function GET() {
     console.error("topPlayers error:", error);
     return NextResponse.json(
       { message: "Failed to load topPlayers" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

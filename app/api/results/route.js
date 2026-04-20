@@ -6,7 +6,9 @@ export async function GET(request) {
     await connectDB();
 
     // 👇 userId from headers
+    const { searchParams } = new URL(request.url);
     const userId = request.headers.get("x-user-id");
+    const matchType = searchParams.get("matchType");
 
     if (!userId) {
       return new Response(JSON.stringify({ message: "Unauthorized Access!" }), {
@@ -14,14 +16,23 @@ export async function GET(request) {
         headers: { "Content-Type": "application/json" },
       });
     }
+    const query = {};
 
-    // 🔥 MongoDB filtering (FAST & SCALABLE)
-    const matches = await ResultMatches.find().lean();
+    if (matchType && matchType !== "All Matches") {
+      query.matchType = matchType;
+    }
 
+    const matches = await ResultMatches.find(query).lean();
+    if (!matches) {
+      return new Response(
+        JSON.stringify({ message: "No  matches found", data: [] }),
+        { status: 404, headers: { "Content-Type": "application/json" } },
+      );
+    }
     if (!matches.length) {
       return new Response(
-        JSON.stringify({ message: "No joined matches found", data: [] }),
-        { status: 404, headers: { "Content-Type": "application/json" } },
+        JSON.stringify({ message: "No  matches found", data: [] }),
+        { status: 201, headers: { "Content-Type": "application/json" } },
       );
     }
 
