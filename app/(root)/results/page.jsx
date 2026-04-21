@@ -58,7 +58,6 @@ const getMatchImage = (matchType) => {
   }
 };
 const tabs = [
-  "All Matches",
   MatchType1,
   MatchType2,
   MatchType3,

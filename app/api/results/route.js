@@ -16,13 +16,8 @@ export async function GET(request) {
         headers: { "Content-Type": "application/json" },
       });
     }
-    const query = {};
 
-    if (matchType && matchType !== "All Matches") {
-      query.matchType = matchType;
-    }
-
-    const matches = await ResultMatches.find(query).lean();
+    const matches = await ResultMatches.find({ matchType }).lean();
     if (!matches) {
       return new Response(
         JSON.stringify({ message: "No  matches found", data: [] }),
