@@ -26,38 +26,38 @@ export default function PopupNotice() {
 
         <div className="space-y-3 text-sm leading-relaxed">
           <>
-            <p className="text-yellow-400 mt-3">
+            <p className="text-yellow-400 mt-2">
               ⚠️BR এর বাহিরের প্লেয়ার নিয়ে ঢুকবেন না, এবং ইনভাইট দিবেন না -
               নাহলে সোজা কিক খাবেন টাকা বেক পাবেন না।🚫
             </p>
 
-            <p className="text-yellow-400 mt-3">
+            <p className="text-yellow-400 mt-2">
               💬ডিপোজিটে সমস্যা হলে টেলিগ্রামে মেসেজ দিন।✅
             </p>
 
-            <p className="text-green-400 mt-3">
-              ✅ উইথড্র request পাঠালে ৫-৩০ মিনিটের মধ্যে টাকা পেয়ে যাবেন।
+            <p className="text-green-400 mt-2">
+              ✅উইথড্র request পাঠালে ৫-৩০ মিনিটের মধ্যে টাকা পেয়ে যাবেন।
             </p>
 
-            <p className="text-green-400 mt-3">
-              💬দিনে একবার উইথড্র ও দিতে পারবা, সর্বনিম্ন উইথড্র ৬৫ টাকা,
-              সর্বোচ্চ উইথড্র ৪০০ টাকা।💰
+            <p className="text-green-400 mt-2">
+              💬দিনে দুইবার উইথড্র ও দিতে পারবেন, সর্বনিম্ন উইথড্র ৬৫ টাকা,
+              সর্বোচ্চ উইথড্র ২৫,০০০ টাকা।💰
             </p>
 
-            <p className="text-yellow-400 mt-3">
+            <p className="text-yellow-400 mt-2">
               ⚠️সব ম্যাচের রুলস গুলো পড়ে ম্যাচএ জয়েন করবেন।✅
             </p>
 
-            <p className="text-yellow-400 mt-3">
+            <p className="text-yellow-400 mt-2">
               🗨️ফ্রি ম্যাচ এর রুম আইডি পাসওয়ার্ড টেলিগ্রাম চ্যানেলে দেওয়া হয়।
             </p>
 
-            <p className="text-yellow-400 mt-3">
+            <p className="text-yellow-400 mt-2">
               📩যেকোনো সহযোগিতায় টেলিগ্রামে জয়েন করুন।
             </p>
 
-            <p className="text-yellow-400 mt-3 text-center">
-              ফ্রি ম্যাচে জয়েন করুন, ধন্যবাদ
+            <p className="text-yellow-400 mt-2 text-center">
+              ফ্রি ম্যাচে! জয়েন করুন, ধন্যবাদ
             </p>
           </>
         </div>

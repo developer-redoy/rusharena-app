@@ -134,6 +134,11 @@ export default function DepositPage() {
                 </div>
               ))}
             </div>
+            <div className="space-y-3 text-sm leading-relaxed">
+              <p className="text-yellow-400 mt-2">
+                ⚠️ সর্বনিম্ন Diposit ১০ টাকা হতে হবে।
+              </p>
+            </div>
           </div>
 
           {/* Inputs */}
