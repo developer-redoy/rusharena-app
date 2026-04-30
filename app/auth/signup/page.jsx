@@ -17,7 +17,6 @@ import { Preferences } from "@capacitor/preferences";
 import { web_login } from "@/routes/websiteRoute";
 import { signupSchema } from "@/lib/zodSchema";
 import Logo from "@/public/images/logo.jpg";
-import { GoogleAuth } from "@codetrix-studio/capacitor-google-auth";
 
 import { showToast } from "@/app/component/application/tostify";
 import ButtonLoading from "@/app/component/buttonLoading";
@@ -29,10 +28,6 @@ export default function SignupPage() {
 
   const router = useRouter();
   const { data: session } = useSession();
-
-  useEffect(() => {
-    GoogleAuth.initialize();
-  }, []);
 
   const {
     register,
@@ -109,26 +104,7 @@ export default function SignupPage() {
       setLoading(false);
     }
   };
-  const handleGoogleLogin = async () => {
-    try {
-      const user = await GoogleAuth.signIn();
 
-      console.log(user);
-
-      const email = user.email;
-      const name = user.name;
-      const token = user.authentication.idToken;
-
-      // send to backend
-      await fetch("/api/auth/google", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, name, token }),
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
   return (
     <div className="flex w-full h-screen items-center justify-center bg-gray-50">
       <Card className="w-full max-w-md shadow-md">
@@ -154,8 +130,7 @@ export default function SignupPage() {
           {/* Google Sign In */}
           <button
             type="button"
-            // onClick={() => signIn("google")}
-            onClick={handleGoogleLogin}
+            onClick={() => signIn("google")}
             className="w-full border p-2 rounded-md flex items-center justify-center gap-2 mb-4 bg-cyan-500 hover:bg-cyan-700 transition transform hover:scale-105 animate-pulse"
           >
             Continue with Google
@@ -191,7 +166,6 @@ export default function SignupPage() {
                 autoComplete="email"
                 placeholder="example@gmail.com"
                 {...register("email")}
-                disabled
               />
 
               {errors.email && (

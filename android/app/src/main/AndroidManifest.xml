@@ -49,10 +49,7 @@
             </intent-filter>
         </service>
 
-        <meta-data
-      android:name="com.google.android.gms.client_id"
-      android:value="@string/server_client_id"
-    />
+        
     </application>
 
 </manifest>
