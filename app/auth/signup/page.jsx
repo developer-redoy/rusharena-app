@@ -127,14 +127,14 @@ export default function SignupPage() {
         </CardHeader>
 
         <CardContent>
-          {/* Google Sign In */}
+          {/* Google Sign In
           <button
             type="button"
             onClick={() => signIn("google")}
             className="w-full border p-2 rounded-md flex items-center justify-center gap-2 mb-4 bg-cyan-500 hover:bg-cyan-700 transition transform hover:scale-105 animate-pulse"
           >
             Continue with Google
-          </button>
+          </button> */}
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Name */}
