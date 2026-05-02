@@ -8,7 +8,7 @@ const MarqueeText = () => {
   const [duration, setDuration] = useState(30);
   const [scrollWidth, setScrollWidth] = useState(0);
   const [text, setText] = useState(
-    "Welcome to Rush Arena! Welcome to Rush Arena! Welcome to Rush Arena!"
+    "Welcome to Rush Arena! Welcome to Rush Arena! Welcome to Rush Arena!",
   );
 
   // Fetch marquee message from API
@@ -64,8 +64,8 @@ const MarqueeText = () => {
       </div>
 
       {/* Fade Gradient Edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-amber-100 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-amber-100 to-transparent" />
+      {/* <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-amber-100 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-amber-100 to-transparent" /> */}
 
       {/* Inline Animation Style */}
       <style jsx>{`

@@ -43,6 +43,7 @@
     "next": "^16.0.10",
     "next-auth": "^4.24.13",
     "react": "19.1.0",
+    "react-countup": "^6.5.3",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.65.0",
     "react-redux": "^9.2.0",

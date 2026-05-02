@@ -12,6 +12,7 @@ import {
   Share2,
   Copy,
 } from "lucide-react";
+import CountUp from "react-countup";
 import { depositPage, transection, withdrawPage } from "@/config";
 import ButtonLoading from "@/app/component/buttonLoading";
 import { useEffect, useState } from "react";
@@ -22,6 +23,7 @@ import axios from "axios";
 export default function ProfileSidebar() {
   const [loading, setLoading] = useState(false);
   const [total, setTotals] = useState({});
+  const [countDone, setCountDone] = useState(false);
 
   // Fetch Profile Info
   useEffect(() => {
@@ -32,6 +34,9 @@ export default function ProfileSidebar() {
         if (data.success) {
           setTotals(data.data);
         }
+        setTimeout(() => {
+          setCountDone(true);
+        }, 5000);
       } catch {
         showToast("error", "Failed to fetch Profile Info!");
       }
@@ -63,21 +68,27 @@ export default function ProfileSidebar() {
               <h3 className="text-lg font-semibold">{total.userName}</h3>
             </div>
 
-            <div className="w-full mt-3 bg-white/8 rounded-xl py-3 px-2 flex justify-between text-center">
+            <div
+              className={`w-full mt-3 bg-white/8 rounded-xl py-3 px-2 flex justify-between text-center  ${
+                countDone && "animate-bump text-green-400"
+              }`}
+            >
               <div className="flex-1">
                 <div className="text-2xl font-bold">
-                  {total.totalMatches || 0}
+                  <CountUp end={total.totalMatches || 0} duration={4} />
                 </div>
                 <div className="text-xs text-white/70">Match Played</div>
               </div>
               <div className="flex-1">
                 <div className="text-2xl font-bold">
-                  {total.totalKills || 0}
+                  <CountUp end={total.totalKills || 0} duration={4} />
                 </div>
                 <div className="text-xs text-white/70">Total Kill</div>
               </div>
               <div className="flex-1">
-                <div className="text-2xl font-bold">{total.totalWins || 0}</div>
+                <div className="text-2xl font-bold">
+                  <CountUp end={total.totalWins || 0} duration={4} />
+                </div>
                 <div className="text-xs text-white/70">Won</div>
               </div>
             </div>

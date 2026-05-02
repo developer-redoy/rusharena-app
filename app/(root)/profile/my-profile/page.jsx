@@ -12,7 +12,7 @@ import { showToast } from "@/app/component/application/tostify";
 
 import { passwordSchema } from "@/lib/zodSchema";
 
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Copy } from "lucide-react";
 
 export default function ProfilePage() {
   const [showOldPassword, setShowOldPassword] = useState(false);
@@ -144,7 +144,15 @@ export default function ProfilePage() {
               />
             </svg>
           </div>
-          <h2 className="text-lg font-semibold">{loggedAuth.name}</h2>
+          <div className="flex gap-3 justify-center">
+            <h2 className="text-lg font-semibold">{loggedAuth.name}</h2>
+            <button
+              onClick={() => copyToClipboard(loggedAuth.name || "")}
+              className="ml-2 p-2 text-xs bg-[#0A0127] cursor-pointer rounded text-white"
+            >
+              <Copy size={16} />
+            </button>
+          </div>
           <p className="text-gray-300 text-sm break-all">{loggedAuth.email}</p>
         </div>
       </div>
@@ -160,12 +168,6 @@ export default function ProfilePage() {
           <p className="text-gray-400 text-sm">Username</p>
           <div className="flex items-center justify-between mt-1 border-b border-gray-500 p-2 rounded">
             <p className="text-white text-sm m-2">{loggedAuth.name}</p>
-            <button
-              onClick={() => copyToClipboard(loggedAuth.name || "")}
-              className="ml-2 p-2 text-xs bg-blue-500  rounded text-white"
-            >
-              Copy Username
-            </button>
           </div>
         </div>
 

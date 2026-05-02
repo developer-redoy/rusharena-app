@@ -270,7 +270,7 @@ export default function ResultPage() {
 
                     <div
                       className={`transition-all duration-300 overflow-hidden ${
-                        openMatchId === match._id ? "max-h-[500px]" : "max-h-0"
+                        openMatchId === match._id ? "max-h-[5000px]" : "max-h-0"
                       }`}
                     >
                       <div className="overflow-x-auto mt-3">
