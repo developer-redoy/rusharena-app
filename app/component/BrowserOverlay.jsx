@@ -6,17 +6,17 @@ import Image from "next/image";
 export default function BrowserOverlay({ children }) {
   const [showOverlay, setShowOverlay] = useState(false);
 
-  // useEffect(() => {
-  //   const isCapacitorEnv =
-  //     typeof window !== "undefined" &&
-  //     typeof window.Capacitor !== "undefined" &&
-  //     typeof window.Capacitor.isNativePlatform === "function" &&
-  //     window.Capacitor.isNativePlatform();
+  useEffect(() => {
+    const isCapacitorEnv =
+      typeof window !== "undefined" &&
+      typeof window.Capacitor !== "undefined" &&
+      typeof window.Capacitor.isNativePlatform === "function" &&
+      window.Capacitor.isNativePlatform();
 
-  //   if (!isCapacitorEnv) {
-  //     setShowOverlay(true); // Show only in browsers
-  //   }
-  // }, []);
+    if (!isCapacitorEnv) {
+      setShowOverlay(true); // Show only in browsers
+    }
+  }, []);
 
   if (!showOverlay) return <>{children}</>;
 
