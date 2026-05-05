@@ -32,7 +32,6 @@ import PrizePopup from "./prizePopup";
 import { Preferences } from "@capacitor/preferences";
 import { showToast } from "./tostify";
 import axios from "axios";
-import { RotateCcw } from "lucide-react";
 
 // ✅ helper to get image based on type
 const getMatchImage = (matchType) => {
@@ -110,7 +109,7 @@ const PlayMatch = () => {
         // JUST SORT BY DATE (ASC)
 
         const filtered = allMatches.sort(
-          (a, b) => new Date(a.startTime) - new Date(b.startTime)
+          (a, b) => new Date(a.startTime) - new Date(b.startTime),
         );
 
         // CHECK LOGGED USER
@@ -123,7 +122,7 @@ const PlayMatch = () => {
           setJoinedMatch([]);
         } else {
           const joined = filtered.filter((match) =>
-            match.joinedPlayers.some((p) => p.authId === authId)
+            match.joinedPlayers.some((p) => p.authId === authId),
           );
           setJoinedMatch(joined);
         }
@@ -422,7 +421,7 @@ const PlayMatch = () => {
                     onClick={(e) => {
                       e.stopPropagation();
                       router.push(
-                        `/play-match/join-match?matchId=${match._id}`
+                        `/play-match/join-match?matchId=${match._id}`,
                       );
                     }}
                     disabled={isDisabled}
