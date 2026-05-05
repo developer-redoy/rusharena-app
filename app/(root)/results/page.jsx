@@ -279,6 +279,7 @@ export default function ResultPage() {
                             <tr className="bg-gray-800 text-gray-300 text-xs">
                               <th className="p-2 text-left">#</th>
                               <th className="p-2 text-left">Name</th>
+                              <th className="p-2 text-left">username</th>
                               <th className="p-2 text-center">Kills</th>
                               <th className="p-2 text-center">Wins</th>
                             </tr>
@@ -293,6 +294,9 @@ export default function ResultPage() {
                                 <td className="p-2">{index + 1}</td>
                                 <td className="p-2 text-green-400">
                                   {player.name || "N/A"}
+                                </td>
+                                <td className="p-2 text-green-400">
+                                  {player.userName || "N/A"}
                                 </td>
                                 <td className="p-2 text-center">
                                   {player.kills || 0}

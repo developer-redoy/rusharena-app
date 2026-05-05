@@ -32,6 +32,9 @@ export async function POST(req) {
       return response(false, 404, "User not found");
     }
     const totalSpots = match.totalSpots;
+    if (match.joinedPlayers.length >= totalSpots) {
+      return response(false, 400, "Match is already full");
+    }
     if (match.joinedPlayers.length + players.length > totalSpots) {
       return response(false, 400, "Not enough spots available in the match");
     }

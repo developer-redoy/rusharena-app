@@ -212,7 +212,8 @@ export default function MatchDetails() {
               <thead>
                 <tr className="bg-gray-800 text-gray-300 uppercase text-xs md:text-sm">
                   <th className="py-2 px-4 text-left">#</th>
-                  <th className="py-2 px-4 text-left">Player Name</th>
+                  <th className="py-2 px-4 text-left">User Name</th>
+                  <th className="py-2 px-4 text-left">FF Name</th>
                 </tr>
               </thead>
 
@@ -223,6 +224,7 @@ export default function MatchDetails() {
                     className="border-b border-gray-700 hover:bg-gray-800 transition"
                   >
                     <td className="py-2 px-4">{index + 1}</td>
+                    <td className="py-2 px-4">{player.userName}</td>
 
                     <td
                       className={`py-2 px-4 font-medium ${
