@@ -46,26 +46,26 @@ export async function POST(req) {
     }
 
     // ❗ Check today's withdraw (start & end of day)
-    const startOfDay = new Date();
-    startOfDay.setHours(0, 0, 0, 0);
+    // const startOfDay = new Date();
+    // startOfDay.setHours(0, 0, 0, 0);
 
-    const endOfDay = new Date();
-    endOfDay.setHours(23, 59, 59, 999);
+    // const endOfDay = new Date();
+    // endOfDay.setHours(23, 59, 59, 999);
 
-    const withdrawCount = await Withdraw.countDocuments({
-      userId: user._id,
-      createdAt: { $gte: startOfDay, $lte: endOfDay },
-    }).session(session);
+    // const withdrawCount = await Withdraw.countDocuments({
+    //   userId: user._id,
+    //   createdAt: { $gte: startOfDay, $lte: endOfDay },
+    // }).session(session);
 
-    const transactionCount = await Transactions.countDocuments({
-      userId: user._id,
-      createdAt: { $gte: startOfDay, $lte: endOfDay },
-    }).session(session);
+    // const transactionCount = await Transactions.countDocuments({
+    //   userId: user._id,
+    //   createdAt: { $gte: startOfDay, $lte: endOfDay },
+    // }).session(session);
 
-    if (withdrawCount + transactionCount >= 2) {
-      await session.abortTransaction();
-      return response(false, 400, "Your withdrawal limit reached for today");
-    }
+    // if (withdrawCount + transactionCount >= 2) {
+    //   await session.abortTransaction();
+    //   return response(false, 400, "Your withdrawal limit reached for today");
+    // }
     // ❗ Safe balance deduction (atomic check)
     const updatedUser = await User.findOneAndUpdate(
       {
