@@ -6,12 +6,7 @@ import Image from "next/image";
 export default function BrowserOverlay({ children }) {
   const [showOverlay, setShowOverlay] = useState(false);
 
-  
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_MODE === "dev") {
-      setShowOverlay(false);
-      return;
-    }
     const isCapacitorEnv =
       typeof window !== "undefined" &&
       typeof window.Capacitor !== "undefined" &&
