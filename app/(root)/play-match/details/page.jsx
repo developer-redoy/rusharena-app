@@ -20,6 +20,7 @@ export default function MatchDetails() {
   const [editMode, setEditMode] = useState(false);
   const [editingUserName, setEditingUserName] = useState("");
   const [editingPlayer, setEditingPlayer] = useState(null);
+  const [duplicateAuthIds, setDuplicateAuthIds] = useState([]);
 
   // get logged user authId
   useEffect(() => {
@@ -47,7 +48,7 @@ export default function MatchDetails() {
         const data = res.data?.data;
 
         setMatch(data || null);
-        setPlayers(data?.joinedPlayers || []);
+        await setPlayers(data?.joinedPlayers || []);
       } catch (err) {
         console.error("Error fetching match:", err);
         showToast(false, "Something went wrong!");
@@ -58,6 +59,28 @@ export default function MatchDetails() {
 
     fetchMatch();
   }, [matchId]);
+
+  useEffect(() => {
+    const authIdGroups = {};
+    let groupCounter = 1;
+
+    players.forEach((player) => {
+      if (!authIdGroups[player.authId]) {
+        authIdGroups[player.authId] = [];
+      }
+      authIdGroups[player.authId].push(player);
+    });
+
+    // Assign group numbers only for duplicates
+    const authIdToGroupId = {};
+
+    Object.entries(authIdGroups).forEach(([authId, group]) => {
+      if (group.length > 1) {
+        authIdToGroupId[authId] = groupCounter++;
+      }
+    });
+    setDuplicateAuthIds(authIdToGroupId);
+  }, [players]);
 
   // UPDATE USERNAME FUNCTION
   const updateUsername = async () => {
@@ -109,7 +132,7 @@ export default function MatchDetails() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1f1f2e] to-[#0b0620] text-white px-6 py-8 space-y-6">
       {/* Match Info */}
-      <div className="p-6 rounded-2xl shadow-lg border border-gray-700">
+      <div className="p-6 rounded-2xl shadow-lg border border-gray-600">
         <h2 className="text-3xl font-bold text-white mb-4">{match.title}</h2>
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 text-white/90">
@@ -154,14 +177,14 @@ export default function MatchDetails() {
           </p>
         </div>
 
-        <p className="font-semibold text-green-500">
+        <p className="font-semibold text-green-600">
           {new Date(match.startTime).toLocaleString()}
         </p>
       </div>
 
       {/* Prize Details */}
       {Array.isArray(match.prizeDetails) && match.prizeDetails.length > 0 && (
-        <div className="bg-[#1f1f2e] p-5 rounded-xl shadow-md border border-gray-700">
+        <div className="bg-[#1f1f2e] p-5 rounded-xl shadow-md border border-gray-600">
           <h3 className="font-bold text-xl mb-3 text-white text-center">
             Prize Details
           </h3>
@@ -195,7 +218,7 @@ export default function MatchDetails() {
       <MatchRule matchType={match.matchType} />
 
       {/* Joined Players */}
-      <div className="bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-700">
+      <div className="bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-600">
         <h3 className="font-bold mb-4 text-xl text-center text-white">
           Joined Players
         </h3>
@@ -216,40 +239,51 @@ export default function MatchDetails() {
                   <th className="py-2 px-4 text-left">Player Name</th>
                 </tr>
               </thead>
-
               <tbody>
-                {players.map((player, index) => (
-                  <tr
-                    key={player._id || index}
-                    className="border-b border-gray-700 hover:bg-gray-800 transition"
-                  >
-                    <td className="py-2 px-4">{index + 1}</td>
+                {players.map((player, index) => {
+                  const groupId = duplicateAuthIds[player.authId];
 
-                    <td
-                      className={`py-2 px-4 font-medium flex justify-between ${
-                        player.authId === userAuthId
-                          ? "text-green-400"
-                          : "text-yellow-400"
-                      }`}
+                  return (
+                    <tr
+                      key={player._id || index}
+                      className={`border-b border-gray-700 hover:bg-gray-800 transition `}
                     >
-                      {player.name || "N/A"}
+                      <td className="py-2 px-4">{index + 1}</td>
 
-                      {player.authId === userAuthId && (
-                        <button
-                          className="ml-3 bg-gray-700 text-gray-200 hover:bg-gray-600 px-3 py-1 rounded-full text-xs"
-                          onClick={() => {
-                            setEditMode(true);
-                            setEditingUserName(player.name);
-                            setEditingPlayer(player);
-                            setUserId(player._id);
-                          }}
-                        >
-                          Edit
-                        </button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
+                      <td
+                        className={`py-2 px-4 font-medium flex justify-between ${
+                          player.authId === userAuthId
+                            ? "text-green-400"
+                            : "text-yellow-400"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          {player.name || "N/A"}
+
+                          {groupId && (
+                            <span className="text-red-400 bg-amber-200 font-bold px-2 rounded-lg text-xs">
+                              Team {groupId}
+                            </span>
+                          )}
+                        </div>
+
+                        {player.authId === userAuthId && (
+                          <button
+                            className="ml-3 bg-gray-700 text-gray-200 hover:bg-gray-600 px-3 py-1 rounded-full text-xs"
+                            onClick={() => {
+                              setEditMode(true);
+                              setEditingUserName(player.name);
+                              setEditingPlayer(player);
+                              setUserId(player._id);
+                            }}
+                          >
+                            Edit
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -259,7 +293,7 @@ export default function MatchDetails() {
       {/* Edit Username UI */}
       {editMode && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-gray-900 text-white w-[90%] max-w-md rounded-2xl p-5 shadow-lg border border-gray-700">
+          <div className="bg-gray-900 text-white w-[90%] max-w-md rounded-2xl p-5 shadow-lg border border-gray-600">
             <input
               type="text"
               placeholder="Enter new username"
