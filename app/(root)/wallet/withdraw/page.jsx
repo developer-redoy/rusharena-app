@@ -29,6 +29,7 @@ export default function WithdrawPage() {
   const paymentOptions = [
     { name: "Bkash", img: "/images/assets/bkash.jpg" },
     { name: "Nagad", img: "/images/assets/nagad.jpg" },
+    { name: "Roket", img: "/images/assets/roket.jpg" },
   ];
 
   const [winBalance, setwinbalance] = useState(0);

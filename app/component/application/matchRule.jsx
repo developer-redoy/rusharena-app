@@ -92,15 +92,8 @@ export default function MatchRule({ matchType }) {
 
       <p className="text-yellow-400 mt-3">
         তবে আপনি যদি এমন কোনো কঠিন জোনে আটকে যান, যেখান থেকে দৌড়ে বের হওয়া
-        অসম্ভব,
-      </p>
-
-      <p className="text-yellow-400 mt-3">
-        তাহলে সেখানে গাড়ি ব্যবহার করা যাবে -
-      </p>
-
-      <p className="text-yellow-400 mt-3">
-        কিন্তু জোনে ঢোকার আগেই গাড়ি থেকে নেমে যেতে হবে।
+        অসম্ভব, তাহলে সেখানে গাড়ি ব্যবহার করা যাবে - কিন্তু জোনে ঢোকার আগেই গাড়ি
+        থেকে নেমে যেতে হবে।
       </p>
 
       <p className="text-blue-400 mt-3">
@@ -146,7 +139,7 @@ export default function MatchRule({ matchType }) {
     // 2 --- Survival Match Rules -----
     <>
       <p className="text-yellow-400 font-semibold text-lg mt-3">
-        🎮RUSH ARENA || SURVIVAL MATCH RULES :-
+        🎮RUSH ARENA || SURVIVAL MATCH RULES
       </p>
 
       <p className="text-yellow-400 mt-3">
@@ -252,7 +245,7 @@ export default function MatchRule({ matchType }) {
     // 3 --- Squad BR Match Rules -----
     <>
       <p className="text-yellow-400 font-semibold text-lg mt-3">
-        RUSH ARENA || BR SQUAD MATCH RULES :-
+        RUSH ARENA || BR SQUAD MATCH RULES
       </p>
 
       <p className="text-yellow-400 mt-3">
@@ -401,18 +394,18 @@ export default function MatchRule({ matchType }) {
     // 4 --- Clash Squad Match Rules -----
     <>
       <p className="text-yellow-400 font-semibold text-lg mt-3">
-        🎮RUSH ARENA || CLASH SQUAD MATCH RULES:-
+        🎮RUSH ARENA || CLASH SQUAD MATCH RULES
       </p>
 
       <p className="text-yellow-400 mt-3">
-        1. 🎯Solo Match এর নিয়ম: (1, 3, 5, 7 হলে আপনি থাকবেন টিম ১। যদি অ্যাপে
-        জয়েন দেন 2, 4, 6, 8 এতে আপনি থাকবেন টিম ২)। কাস্টমে রুমে গিয়ে সেই টিমে
+        ১. 🎯Solo Match এর নিয়ম: (1, 3, 5, 7 হলে আপনি থাকবেন টিম 1 যদি অ্যাপে
+        জয়েন দেন 2, 4, 6, 8 এতে আপনি থাকবেন টিম 2)। কাস্টমে রুমে গিয়ে সেই টিমে
         বসবেন। না হলে কিক খেলে টাকা ফেরত পাবেন না।
       </p>
 
       <p className="text-yellow-400 mt-3">
-        ম্যাচে যোগ দেওয়ার সময় অবশ্যই আপনার গেম আইডি সঠিকভাবে মিলিয়ে নিবেন। গেম
-        আইডি ছাড়া বা অন্য কিছু লিখে জয়েন করলে ম্যাচ খেলতে দেওয়া হবে না।
+        ম্যাচে যোগ দেওয়ার সময় অবশ্যই আপনার গেম আইডি সঠিকভাবে মিলিয়ে নিবেন।
+        গেম আইডি ছাড়া বা অন্য কিছু লিখে জয়েন করলে ম্যাচ খেলতে দেওয়া হবে না।
       </p>
 
       <p className="text-yellow-400 mt-3">
@@ -485,13 +478,13 @@ export default function MatchRule({ matchType }) {
     // 5 --- CS 2 vs 2 Match Rules -----
     <>
       <p className="text-yellow-400 font-semibold text-lg mt-3">
-        RUSH ARENA || CS 2 vs 2 Match Rules:-
+        RUSH ARENA || CS 2 vs 2 Match Rules
       </p>
 
       <p className="text-yellow-400 mt-3">
-        1. 🎯Solo Match এর নিয়ম: (1, 3 হলে আপনি থাকবেন টিম ১। যদি অ্যাপে জয়েন
-        দেন 2, 4 এতে আপনি থাকবেন টিম ২)। কাস্টমে রুমে গিয়ে সেই টিমে বসবেন। না
-        হলে কিক খেলে টাকা ফেরত পাবেন না।
+        1. 🎯Solo Match এর নিয়ম: (1, 3 হলে আপনি থাকবেন টিম 1 যদি অ্যাপে জয়েন দেন
+        2, 4 এতে আপনি থাকবেন টিম 2)। কাস্টমে রুমে গিয়ে সেই টিমে বসবেন। না হলে
+        কিক খেলে টাকা ফেরত পাবেন না।
       </p>
 
       <p className="text-yellow-400 mt-3">
@@ -568,7 +561,7 @@ export default function MatchRule({ matchType }) {
     // 6 --- CS Headshot Match Rules -----
     <>
       <p className="text-yellow-400 font-semibold text-lg mt-3">
-        RUSH ARENA || CS Headshot Match Rules:-
+        RUSH ARENA || CS Headshot Match Rules
       </p>
 
       <p className="text-yellow-400 mt-3">
@@ -631,7 +624,7 @@ export default function MatchRule({ matchType }) {
     // 7 --- Lone Wolf Match Rules -----
     <>
       <p className="text-yellow-400 font-semibold text-lg mt-3">
-        🎮RUSH ARENA || King Lone Wolf Match Rules:-
+        🎮RUSH ARENA || King Lone Wolf Match Rules
       </p>
 
       <p className="text-yellow-400 mt-3">
@@ -701,7 +694,7 @@ export default function MatchRule({ matchType }) {
     // 8 --- Lost To Win Match Rules -----
     <>
       <p className="text-yellow-400 font-semibold text-lg mt-3">
-        🎮RUSH ARENA || Lone Wolf Headshot Match Rules:-
+        🎮RUSH ARENA || Lone Wolf Headshot Match Rules
       </p>
 
       <p className="text-yellow-400 mt-3">
@@ -764,7 +757,7 @@ export default function MatchRule({ matchType }) {
     // 9 --- Lost To Win Match Rules -----
     <>
       <p className="text-yellow-400 font-semibold text-lg mt-3">
-        🎮RUSH ARENA || Lost To Win Match Rules:-
+        🎮RUSH ARENA || Lost To Win Match Rules
       </p>
 
       <p className="text-yellow-400 mt-3">
@@ -820,7 +813,7 @@ export default function MatchRule({ matchType }) {
     // 10 --- Free Match Rules -----
     <>
       <p className="text-yellow-400 font-semibold text-lg mt-3">
-        🎮RUSH ARENA || Free Match Rules:-
+        🎮RUSH ARENA || Free Match Rules
       </p>
 
       <p className="text-yellow-400 mt-3">
@@ -865,7 +858,7 @@ export default function MatchRule({ matchType }) {
         দেওয়া হবে। তাও চিরতরের জন্য ডিভাইস ব্যান্ড করা হবে।☠️
       </p>
 
-      <p className="text-green-400 mt-3">7. গাড়ি ব্যবহার করা যাবে।</p>
+      <p className="text-red-400 mt-3">7. গাড়ি ব্যবহার করা যাবে না ।</p>
 
       <p className="text-green-400 mt-3">টিমিং করা যাবে না।</p>
 

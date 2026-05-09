@@ -11,7 +11,7 @@ import { catchError, response } from "@/lib/healperFunc";
 const depositSchema = z.object({
   phone: z.string().regex(/^01[3-9]\d{8}$/, "Invalid phone number!"),
   trxId: z.string().min(2, "Transaction ID is required"),
-  method: z.enum(["Bkash", "Nagad"]),
+  method: z.enum(["Bkash", "Nagad", "Roket"], "Invalid payment method"),
   userId: z.string().min(1, "UserId not found"),
 });
 

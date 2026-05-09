@@ -10,7 +10,7 @@ import Transactions from "@/models/transection";
 const zwithdrawSchema = z.object({
   receiverPhone: z.string().regex(/^01[3-9]\d{8}$/, "Invalid phone number!"),
   amount: z.number().min(65, "Minimum withdrawal amount is 65!"),
-  method: z.enum(["Bkash", "Nagad"]),
+  method: z.enum(["Bkash", "Nagad", "Roket"], "Invalid payment method"),
   userId: z.string().min(1, "UserId is required"),
 });
 

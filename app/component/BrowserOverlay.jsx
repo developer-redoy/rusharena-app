@@ -7,6 +7,9 @@ export default function BrowserOverlay({ children }) {
   const [showOverlay, setShowOverlay] = useState(false);
 
   useEffect(() => {
+    if (process.env.NEXT_PUBLIC_MODE === "dev") {
+      return;
+    }
     const isCapacitorEnv =
       typeof window !== "undefined" &&
       typeof window.Capacitor !== "undefined" &&
