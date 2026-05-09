@@ -126,7 +126,7 @@ export default function ResultPage() {
   };
 
   useEffect(() => {
-    fetchMatches();
+    fetchMatches(tabs[activeTab]);
   }, []);
 
   useEffect(() => {
@@ -199,10 +199,6 @@ export default function ResultPage() {
 
           <div className="grid md:grid-cols-2 gap-3">
             {matches.map((match) => {
-              const sortedPlayers = [...(match.joinedPlayers || [])].sort(
-                (a, b) => (a.winning || 0) - (b.winning || 0),
-              );
-
               return (
                 <Card
                   key={match._id}
@@ -269,8 +265,8 @@ export default function ResultPage() {
                     </button>
 
                     <div
-                      className={`transition-all duration-300 overflow-hidden ${
-                        openMatchId === match._id ? "max-h-[5000px]" : "max-h-0"
+                      className={`transition-all duration-300 overflow-scroll ${
+                        openMatchId === match._id ? "max-h-[500px]" : "max-h-0"
                       }`}
                     >
                       <div className="overflow-x-auto mt-3">
@@ -286,7 +282,7 @@ export default function ResultPage() {
                           </thead>
 
                           <tbody>
-                            {sortedPlayers.map((player, index) => (
+                            {match.joinedPlayers?.map((player, index) => (
                               <tr
                                 key={player._id || index}
                                 className="border-b border-gray-700 hover:bg-gray-800"

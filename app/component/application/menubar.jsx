@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Preferences } from "@capacitor/preferences";
 import { showToast } from "./tostify";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw, Wallet } from "lucide-react";
 import axios from "axios";
 
 export default function Navbar() {
@@ -78,16 +78,16 @@ export default function Navbar() {
         </div>
 
         {/* Right side: Wallet section */}
-        <div className="flex items-center gap-2">
-          <Image
-            src="/images/assets/wallet.jpg"
-            alt="wallet"
-            width={40}
-            height={40}
-            className="rounded h-auto object-cover"
-          />
-          <span className="font-medium text-white">
-            ৳ {isNaN(Number(balanceAmount)) ? 0 : Number(balanceAmount)}
+        <div className="flex items-center border border-gray-700 rounded-lg pr-4 pl-1 py-0 ">
+          <div className="relative w-7 h-7 mr-2">
+            <Wallet size={28} className="text-yellow-500  absolute" />
+            <strong className=" absolute text-white text-lg translate-x-2 ">
+              {" "}
+              ৳{" "}
+            </strong>{" "}
+          </div>
+          <span className="font-bold text-lg text-white">
+            {isNaN(Number(balanceAmount)) ? 0 : Number(balanceAmount)}
           </span>
         </div>
 
