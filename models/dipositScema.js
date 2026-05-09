@@ -12,7 +12,7 @@ const DipositSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      enum: ["Bkash", "Nagad", "Roket"],
+      enum: ["Bkash", "Nagad", "Rocket"],
     },
     trxId: {
       type: String,
