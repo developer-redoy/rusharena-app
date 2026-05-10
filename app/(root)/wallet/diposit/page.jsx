@@ -20,7 +20,7 @@ export default function DepositPage() {
   const [method, setMethod] = useState("Bkash");
   const [loading, setLoading] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
-  const [numbers, setNumbers] = useState({ Bkash: "", Nagad: "" });
+  const [numbers, setNumbers] = useState({ Bkash: "", Nagad: "", Rocket: "" });
   const [paymentNumber, setPaymentNumber] = useState("Contact to Admin");
 
   // Fetch Admin Numbers
@@ -29,7 +29,11 @@ export default function DepositPage() {
       try {
         const { data } = await axios.get(`/api/wallets/diposit/getNumber`);
         if (data.success) {
-          setNumbers({ Bkash: data.data.Bkash, Nagad: data.data.Nagad });
+          setNumbers({
+            Bkash: data?.data?.Bkash,
+            Nagad: data?.data?.Nagad,
+            Rocket: data?.data?.Rocket,
+          });
         }
       } catch {
         showToast("error", "Failed to fetch current numbers");
@@ -39,7 +43,13 @@ export default function DepositPage() {
 
   // Update Payment Number
   useEffect(() => {
-    setPaymentNumber(method === "Bkash" ? numbers.Bkash : numbers.Nagad);
+    setPaymentNumber(
+      method === "Bkash"
+        ? numbers.Bkash
+        : method === "Nagad"
+        ? numbers.Nagad
+        : numbers.Rocket,
+    );
   }, [method, numbers]);
 
   const {

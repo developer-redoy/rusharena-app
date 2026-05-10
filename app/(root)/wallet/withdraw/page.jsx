@@ -9,19 +9,6 @@ import { showToast } from "@/app/component/application/tostify";
 import { Preferences } from "@capacitor/preferences";
 import ButtonLoading from "@/app/component/buttonLoading";
 
-const withdrawSchema = z.object({
-  receiverPhone: z.string().regex(/^01[3-9]\d{8}$/, "Invalid phone number!"),
-  amount: z
-    .union([
-      z
-        .string()
-        .regex(/^\d+$/, "Amount must be a valid number")
-        .transform(Number),
-      z.number(),
-    ])
-    .refine((n) => n >= 65, { message: "Minimum withdrawal amount is 65!" }),
-});
-
 export default function WithdrawPage() {
   const [method, setMethod] = useState("Bkash");
   const [loading, setLoading] = useState(false);
@@ -33,6 +20,25 @@ export default function WithdrawPage() {
   ];
 
   const [winBalance, setwinbalance] = useState(0);
+
+  const regexMap = {
+    Bkash: /^01[3-9]\d{8}$/,
+    Nagad: /^01[3-9]\d{8}$/,
+    Rocket: /^01[3-9]\d{9}$/,
+  };
+
+  const withdrawSchema = z.object({
+    receiverPhone: z.string().regex(regexMap[method], "Invalid phone number!"),
+    amount: z
+      .union([
+        z
+          .string()
+          .regex(/^\d+$/, "Amount must be a valid number")
+          .transform(Number),
+        z.number(),
+      ])
+      .refine((n) => n >= 65, { message: "Minimum withdrawal amount is 65!" }),
+  });
 
   useEffect(() => {
     async function loadUser() {
