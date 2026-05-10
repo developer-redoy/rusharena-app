@@ -21,14 +21,8 @@ export default function WithdrawPage() {
 
   const [winBalance, setwinbalance] = useState(0);
 
-  const regexMap = {
-    Bkash: /^01[3-9]\d{8}$/,
-    Nagad: /^01[3-9]\d{8}$/,
-    Rocket: /^01[3-9]\d{9}$/,
-  };
-
   const withdrawSchema = z.object({
-    receiverPhone: z.string().regex(regexMap[method], "Invalid phone number!"),
+    receiverPhone: z.string().regex(/^01[3-9]\d{8}$/, "Invalid phone number!"),
     amount: z
       .union([
         z
@@ -224,7 +218,7 @@ export default function WithdrawPage() {
 
             <li className="flex items-start gap-2">
               <span>💵</span>
-              <span>সর্বনিম্ন উত্তোলন ৬৫ টাকা এবং সর্বোচ্চ ৪০০ টাকা।</span>
+              <span>সর্বনিম্ন উত্তোলন ৬৫ টাকা এবং সর্বোচ্চ 25,000 টাকা।</span>
             </li>
 
             <li className="flex items-start gap-2">
