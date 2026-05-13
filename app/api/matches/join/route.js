@@ -38,6 +38,13 @@ export async function POST(req) {
     if (match.joinedPlayers.length + players.length > totalSpots) {
       return response(false, 400, "Not enough spots available in the match");
     }
+    if (match.roomId !== "" && match.roomPass !== "") {
+      return response(
+        false,
+        400,
+        "Room Id and password already decleard, You can't join now",
+      );
+    }
 
     // ✅ Calculate total entry fee = entryFee × number of players
     const totalEntryFee = match.entryFee * players.length;

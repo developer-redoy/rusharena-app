@@ -13,7 +13,7 @@ import ButtonLoading from "@/app/component/buttonLoading";
 const schema = z.object({
   method: z.enum(["Bkash", "Nagad"]),
   phone: z.string().regex(/^01[3-9]\d{8}$/, "Invalid phone number!"),
-  trxId: z.string().min(4, "Enter a valid transaction ID!"),
+  trxId: z.string().regex(/^[A-Z0-9]{4,10}$/, "Invalid transaction ID!"),
 });
 
 export default function DepositPage() {

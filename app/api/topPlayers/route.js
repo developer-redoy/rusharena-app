@@ -26,7 +26,7 @@ export async function GET() {
       },
       {
         // limit top players
-        $limit: 20,
+        $limit: 30,
       },
       {
         // join users collection

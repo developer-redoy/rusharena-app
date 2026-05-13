@@ -10,7 +10,7 @@ import { catchError, response } from "@/lib/healperFunc";
 // ✅ Validation schema
 const depositSchema = z.object({
   phone: z.string().regex(/^01[3-9]\d{8}$/, "Invalid phone number!"),
-  trxId: z.string().min(2, "Transaction ID is required"),
+  trxId: z.string().regex(/^[A-Z0-9]{4,10}$/, "Invalid transaction ID!"),
   method: z.enum(["Bkash", "Nagad", "Rocket"], "Invalid payment method"),
   userId: z.string().min(1, "UserId not found"),
 });

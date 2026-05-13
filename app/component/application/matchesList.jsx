@@ -333,10 +333,18 @@ const PlayMatch = () => {
         {/* ✅ Available Matches */}
         {availableMatches.map((match) => {
           const isFull = match.joinedPlayers.length >= match.totalSpots;
+          const isClosed =
+            match.roomId !== "" && match.roomPass !== "" ? true : false;
           const isOver =
             new Date(match.startTime).getTime() <= new Date().getTime();
-          const buttonText = isFull ? "Full" : isOver ? "Started" : "Join Now";
-          const isDisabled = isFull || isOver;
+          const buttonText = isFull
+            ? "Full"
+            : isOver
+            ? "Started"
+            : isClosed
+            ? "Closed"
+            : "Join Now";
+          const isDisabled = isFull || isOver || isClosed;
 
           return (
             <Card
