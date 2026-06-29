@@ -691,7 +691,7 @@ export default function MatchRule({ matchType }) {
         ✅"ADMIN" এর সিদ্ধান্তই চূড়ান্ত সিদ্ধান্ত।
       </p>
     </>,
-    // 8 --- Lost To Win Match Rules -----
+    // 8 --- Lone wolf headshot Match Rules -----
     <>
       <p className="text-yellow-400 font-semibold text-lg mt-3">
         🎮RUSH ARENA || Lone Wolf Headshot Match Rules
@@ -734,7 +734,8 @@ export default function MatchRule({ matchType }) {
       <p className="text-yellow-400 mt-3">
         6. ম্যাচের লাস্টে ZOON PACK করে যদি কোন প্লেয়ার রাউন্ড বের করে এবং সে
         প্লেয়ার য়ের টিম যদি ম্যাচ Win করে তাহলে সে প্লেয়ার বাদে ম্যাচের সবাইকে
-        রিফান্ড করে দেওয়া হবে।
+        রিফান্ড করে দেওয়া হবে। <br /> কোনো ধরনের ফ্ল্যাশ ব্যবহার করলে তাকে উইনিং
+        দেওয়া হবে না।"
       </p>
 
       <p className="text-red-400 mt-3">
