@@ -14,6 +14,11 @@ export async function POST(req) {
       return response(false, 400, "Invalid data provided");
     }
 
+    const match = await matches.findById(matchId);
+    if (match.roomId !== "" || match.roomPass !== "") {
+      return response(false, 402, "Match Alredy Started");
+    }
+
     const result = await matches.updateOne(
       {
         _id: matchId,
@@ -23,7 +28,7 @@ export async function POST(req) {
         $set: {
           "joinedPlayers.$.name": name,
         },
-      }
+      },
     );
 
     if (result.matchedCount === 0) {
@@ -34,7 +39,6 @@ export async function POST(req) {
       success: true,
       message: "Username updated successfully",
     });
-
   } catch (error) {
     console.error("Update username error:", error);
     return catchError(error);

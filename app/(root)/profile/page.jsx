@@ -58,14 +58,28 @@ export default function ProfileSidebar() {
       setLoading(false);
     }
   };
-
+  // Copy text function
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast("success", "Copied!");
+    } catch {
+      showToast("error", "Copy failed");
+    }
+  };
   return (
     <div className="max-w-md mx-auto p-4">
       <Card className="bg-[#0f0720] text-white shadow-lg rounded-2xl overflow-hidden">
         <CardContent className="p-6">
           <div className="flex flex-col items-center gap-4">
-            <div className="text-center cursor-pointer">
+            <div className="text-center cursor-pointer flex gap-3 justify-center">
               <h3 className="text-lg font-semibold">{total.userName}</h3>
+              <button
+                onClick={() => copyToClipboard(total.userName || "")}
+                className="ml-2 p-2 text-xs bg-[#0A0127] cursor-pointer rounded text-white"
+              >
+                <Copy size={16} />
+              </button>
             </div>
 
             <div

@@ -14,25 +14,25 @@ import {
 
 import {
   MatchType1,
-  MatchType2,
-  MatchType3,
-  MatchType4,
+  // MatchType2,
+  // MatchType3,
+  // MatchType4,
   MatchType5,
-  MatchType6,
+  // MatchType6,
   MatchType7,
   MatchType8,
   MatchType9,
   MatchType10,
   MatchType1Img,
-  MatchType2Img,
-  MatchType3Img,
-  MatchType4Img,
+  // MatchType2Img,
+  // MatchType3Img,
+  // MatchType4Img,
   MatchType5Img,
-  MatchType6Img,
+  // MatchType6Img,
   MatchType7Img,
   MatchType8Img,
   MatchType9Img,
-  MatchType10Img
+  MatchType10Img,
 } from "@/config";
 
 const matches = [
@@ -41,31 +41,31 @@ const matches = [
     link: `/play-match/?type=${MatchType1}`,
     image: MatchType1Img,
   },
-  {
-    title: MatchType2,
-    link: `/play-match/?type=${MatchType2}`,
-    image: MatchType2Img,
-  },
-  {
-    title: MatchType3,
-    link: `/play-match/?type=${MatchType3}`,
-    image: MatchType3Img,
-  },
-  {
-    title: MatchType4,
-    link: `/play-match/?type=${MatchType4}`,
-    image: MatchType4Img,
-  },
+  // {
+  //   title: MatchType2,
+  //   link: `/play-match/?type=${MatchType2}`,
+  //   image: MatchType2Img,
+  // },
+  // {
+  //   title: MatchType3,
+  //   link: `/play-match/?type=${MatchType3}`,
+  //   image: MatchType3Img,
+  // },
+  // {
+  //   title: MatchType4,
+  //   link: `/play-match/?type=${MatchType4}`,
+  //   image: MatchType4Img,
+  // },
   {
     title: MatchType5,
     link: `/play-match/?type=${MatchType5}`,
     image: MatchType5Img,
   },
-  {
-    title: MatchType6,
-    link: `/play-match/?type=${MatchType6}`,
-    image: MatchType6Img,
-  },
+  // {
+  //   title: MatchType6,
+  //   link: `/play-match/?type=${MatchType6}`,
+  //   image: MatchType6Img,
+  // },
   {
     title: MatchType7,
     link: `/play-match/?type=${MatchType7}`,
@@ -76,7 +76,7 @@ const matches = [
     link: `/play-match/?type=${MatchType8}`,
     image: MatchType8Img,
   },
-  
+
   {
     title: MatchType9,
     link: `/play-match/?type=${MatchType9}`,
@@ -88,7 +88,6 @@ const matches = [
     image: MatchType10Img,
   },
 ];
-   
 
 export default function MatchCards() {
   const [counts, setCounts] = useState({});

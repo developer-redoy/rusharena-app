@@ -1,10 +1,10 @@
 import {
   MatchType1,
-  MatchType2,
-  MatchType3,
-  MatchType4,
+  // MatchType2,
+  // MatchType3,
+  // MatchType4,
   MatchType5,
-  MatchType6,
+  // MatchType6,
   MatchType7,
   MatchType8,
   MatchType9,
@@ -764,6 +764,8 @@ export default function MatchRule({ matchType }) {
       <p className="text-yellow-400 mt-3">
         1. ম্যাচে যোগ দেওয়ার সময় অবশ্যই আপনার গেম আইডি সঠিকভাবে মিলিয়ে নিবেন।
         গেম আইডি ছাড়া বা অন্য কিছু লিখে জয়েন করলে ম্যাচ খেলতে দেওয়া হবে না।
+        <br />
+        ফিমেল ক্যারেক্টার ব্যবহার করলে কোনো উইনিং দেওয়া হবেনা
       </p>
 
       <p className="text-yellow-400 mt-3">
@@ -940,11 +942,11 @@ export default function MatchRule({ matchType }) {
 
   const MatchTypes = {
     [MatchType1]: contents[1],
-    [MatchType2]: contents[2],
-    [MatchType3]: contents[3],
-    [MatchType4]: contents[4],
+    // [MatchType2]: contents[2],
+    // [MatchType3]: contents[3],
+    // [MatchType4]: contents[4],
     [MatchType5]: contents[5],
-    [MatchType6]: contents[6],
+    // [MatchType6]: contents[6],
     [MatchType7]: contents[7],
     [MatchType8]: contents[8],
     [MatchType9]: contents[9],

@@ -8,21 +8,21 @@ import Countdown from "@/app/component/countdown";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   MatchType1,
-  MatchType2,
-  MatchType3,
-  MatchType4,
+  // MatchType2,
+  // MatchType3,
+  // MatchType4,
   MatchType5,
-  MatchType6,
+  // MatchType6,
   MatchType7,
   MatchType8,
   MatchType9,
   MatchType10,
   MatchType1Img,
-  MatchType2Img,
-  MatchType3Img,
-  MatchType4Img,
+  // MatchType2Img,
+  // MatchType3Img,
+  // MatchType4Img,
   MatchType5Img,
-  MatchType6Img,
+  // MatchType6Img,
   MatchType7Img,
   MatchType8Img,
   MatchType9Img,
@@ -38,16 +38,16 @@ const getMatchImage = (matchType) => {
   switch (matchType) {
     case MatchType1:
       return MatchType1Img;
-    case MatchType2:
-      return MatchType2Img;
-    case MatchType3:
-      return MatchType3Img;
-    case MatchType4:
-      return MatchType4Img;
+    // case MatchType2:
+    //   return MatchType2Img;
+    // case MatchType3:
+    //   return MatchType3Img;
+    // case MatchType4:
+    //   return MatchType4Img;
     case MatchType5:
       return MatchType5Img;
-    case MatchType6:
-      return MatchType6Img;
+    // case MatchType6:
+    // return MatchType6Img;
     case MatchType7:
       return MatchType7Img;
     case MatchType8:

@@ -103,9 +103,9 @@ export default function MatchDetails() {
         setEditingPlayer(null);
         setEditingUserName("");
 
-        // window.location.reload();
+        window.location.reload();
       } else {
-        showToast(false, "Failed to update username");
+        showToast(false, res?.data.message || "Failed to update username");
       }
     } catch (err) {
       console.error(err);

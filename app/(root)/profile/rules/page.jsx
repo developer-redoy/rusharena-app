@@ -1,11 +1,11 @@
 "use client";
 import {
   MatchType1,
-  MatchType2,
-  MatchType3,
-  MatchType4,
+  // MatchType2,
+  // MatchType3,
+  // MatchType4,
   MatchType5,
-  MatchType6,
+  // MatchType6,
   MatchType7,
   MatchType8,
   MatchType9,
@@ -21,11 +21,11 @@ export default function RulesPage() {
 
   const tabs = [
     MatchType1,
-    MatchType2,
-    MatchType3,
-    MatchType4,
+    // MatchType2,
+    // MatchType3,
+    // MatchType4,
     MatchType5,
-    MatchType6,
+    // MatchType6,
     MatchType7,
     MatchType8,
     MatchType9,
